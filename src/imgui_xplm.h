@@ -17,7 +17,7 @@ class XplmImGuiWindow {
 public:
     struct Fonts {
         ImFont* ui = nullptr;
-        ImFont* small = nullptr;
+        ImFont* note = nullptr;
         ImFont* screen = nullptr;
     };
 

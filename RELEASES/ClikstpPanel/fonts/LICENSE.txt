@@ -1,0 +1,3 @@
+Roboto-Medium.ttf and Cousine-Regular.ttf come from Dear ImGui's misc/fonts folder.
+Roboto: Copyright Google, Apache License 2.0 (https://fonts.google.com/specimen/Roboto).
+Cousine: Copyright Google (Steve Matteson), Apache License 2.0 (https://fonts.google.com/specimen/Cousine).

@@ -14,7 +14,7 @@ namespace clikstp {
 struct PanelFonts {
     ImFont* ui = nullptr;       // Roboto, for everything else
     ImFont* screen = nullptr;   // Cousine (monospace), for the pad's screen
-    ImFont* small = nullptr;    // Roboto, smaller: indicators and notes
+    ImFont* note = nullptr;    // Roboto, smaller: indicators and notes
 };
 
 struct PanelActions {

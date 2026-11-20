@@ -1,0 +1,3 @@
+# CLIKSTP Panel settings. Rename to panel.ini to use it.
+# The CLIKSTP app's web port: only if you changed web.port in CLIKSTP's settings.json.
+port=8780
