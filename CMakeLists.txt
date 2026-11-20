@@ -45,7 +45,9 @@ set_target_properties(clikstp_panel PROPERTIES PREFIX "" SUFFIX ".xpl"
   RUNTIME_OUTPUT_DIRECTORY ${OUT}/64 RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUT}/64 RUNTIME_OUTPUT_DIRECTORY_DEBUG ${OUT}/64)
 
 if(WIN32)
-  target_compile_definitions(clikstp_panel PRIVATE IBM=1 APL=0 LIN=0 NOMINMAX)
+  # NOMINMAX: windows.h's min/max macros. _CRT_SECURE_NO_WARNINGS: the SDK's XPluginStart fills its name buffers
+  # with strcpy, which MSVC's headers flag as deprecated.
+  target_compile_definitions(clikstp_panel PRIVATE IBM=1 APL=0 LIN=0 NOMINMAX _CRT_SECURE_NO_WARNINGS)
   target_link_libraries(clikstp_panel PRIVATE ${SDK}/Libraries/Win/XPLM_64.lib opengl32 shell32)
   set_target_properties(clikstp_panel PROPERTIES OUTPUT_NAME win)
   if(MINGW)

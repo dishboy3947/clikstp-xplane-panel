@@ -134,7 +134,7 @@ void EnsureWindow() {
         if (!styled) { ApplyPanelStyle(); styled = true; }
         PanelState state = gClient.Snapshot();
         const auto& wf = gWindow->GetFonts();
-        PanelFonts fonts{wf.ui, wf.screen, wf.small};
+        PanelFonts fonts{wf.ui, wf.screen, wf.note};
         PanelActions actions;
         actions.selectTool = [](const std::string& id) { gClient.SelectTool(id); };
         actions.startApp = [] { gClient.StartApp(); };

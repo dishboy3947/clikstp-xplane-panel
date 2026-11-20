@@ -1,6 +1,6 @@
 # CLIKSTP Panel for X-Plane 12
 
-A native X-Plane window showing the CLIKSTP pad.
+A native X-Plane window showing the CLIKSTP pad, like the toolbar panel in MSFS:
 
 - the pad's screen (the selected tool and its readout, or "Awaiting sim connection"),
 - App and Pad lights, and which avionics unit the 16 keys drive,
@@ -48,6 +48,11 @@ cmake --build build --config Release
 
 The plugin folder is then `build/CLIKSTP/`.
 
+With the Ninja generator (what Visual Studio's CMake and "Open Folder" use), the build type is chosen when the build
+folder is configured: `--config Release` on the build line is ignored there. A build folder configured without
+`-DCMAKE_BUILD_TYPE=Release` builds Debug (`-O0 -g -D_DEBUG`, linked to the debug runtime); delete it and configure
+again with the line above.
+
 - **Windows:** Visual Studio 2022 with "Desktop development with C++" (CMake comes with it), x64. Or cross-compile
   from Linux / macOS with MinGW-w64: `cmake -B build-win -DCMAKE_TOOLCHAIN_FILE=cmake/mingw-w64.cmake -DCMAKE_BUILD_TYPE=Release`.
   The MinGW build links its runtime statically: one file, no extra DLLs.
@@ -69,5 +74,6 @@ The plugin folder is then `build/CLIKSTP/`.
 
 ## Not yet
 
+- Tried in the real X-Plane (built and exercised against `fake_xplane` with the real CLIKSTP app only).
 - A Mac build (`mac.xpl`).
-- Encoder buttons on the panel (left out on purpose).
+- Encoder buttons on the panel (left out on purpose, like the MSFS panel: the pad's knobs do that).

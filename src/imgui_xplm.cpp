@@ -92,15 +92,15 @@ void XplmImGuiWindow::BuildFonts(float scale) {
     ImFontConfig cfg;
     cfg.OversampleH = 2;
     fonts_.ui = io.Fonts->AddFontFromFileTTF((fontDir_ + "Roboto-Medium.ttf").c_str(), 17.0f * scale, &cfg);
-    fonts_.small = io.Fonts->AddFontFromFileTTF((fontDir_ + "Roboto-Medium.ttf").c_str(), 14.0f * scale, &cfg);
+    fonts_.note = io.Fonts->AddFontFromFileTTF((fontDir_ + "Roboto-Medium.ttf").c_str(), 14.0f * scale, &cfg);
     fonts_.screen = io.Fonts->AddFontFromFileTTF((fontDir_ + "Cousine-Regular.ttf").c_str(), 20.0f * scale, &cfg);
     // Missing font files (a broken install) shouldn't take the panel down: ImGui's built-in font stands in.
-    if (!fonts_.ui || !fonts_.small || !fonts_.screen) {
+    if (!fonts_.ui || !fonts_.note || !fonts_.screen) {
         io.Fonts->Clear();
         ImFontConfig builtin;
         builtin.SizePixels = 13.0f * scale;
         ImFont* f = io.Fonts->AddFontDefault(&builtin);
-        fonts_.ui = fonts_.small = fonts_.screen = f;
+        fonts_.ui = fonts_.note = fonts_.screen = f;
     }
     unsigned char* pixels = nullptr;
     int w = 0, h = 0;

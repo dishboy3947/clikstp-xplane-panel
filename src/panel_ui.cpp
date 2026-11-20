@@ -58,7 +58,7 @@ void ApplyPanelStyle() {
 
 // A lit annunciator, like the page's (green on, grey off, red fault).
 static void Annunciator(const char* label, bool on, bool fault, const PanelFonts& f) {
-    ImGui::PushFont(f.small);
+    ImGui::PushFont(f.note);
     ImVec2 text = ImGui::CalcTextSize(label);
     ImVec2 size(std::max(56.f, text.x + 20), text.y + 10);
     ImVec2 p = ImGui::GetCursorScreenPos();
@@ -97,7 +97,7 @@ static void Screen(const PanelState& s, const PanelFonts& f) {
 }
 
 static void Hint(const char* text, const ImVec4& colour, const PanelFonts& f) {
-    ImGui::PushFont(f.small);
+    ImGui::PushFont(f.note);
     ImGui::PushStyleColor(ImGuiCol_Text, colour);
     ImGui::TextWrapped("%s", text);
     ImGui::PopStyleColor();
@@ -120,7 +120,7 @@ void DrawPanel(const PanelState& s, const PanelFonts& f, const PanelActions& act
     Annunciator("Pad", s.reachable && s.padConnected, false, f);
     if (s.reachable && !s.keysUnit.empty()) {
         ImGui::SameLine();
-        ImGui::PushFont(f.small);
+        ImGui::PushFont(f.note);
         ImGui::AlignTextToFramePadding();
         ImGui::TextDisabled("Keys: %s", s.keysUnit.c_str());
         ImGui::PopFont();
@@ -146,7 +146,7 @@ void DrawPanel(const PanelState& s, const PanelFonts& f, const PanelActions& act
     float footer = ImGui::GetFrameHeight() + ImGui::GetStyle().ItemSpacing.y;
     ImGui::BeginChild("tools", ImVec2(0, -footer), ImGuiChildFlags_Borders);
     if (s.tools.empty()) {
-        ImGui::PushFont(f.small);
+        ImGui::PushFont(f.note);
         ImGui::TextDisabled("%s", s.reachable && s.running && s.simConnected ? "No tools for this aircraft."
                                                                                  : "The tools show here once X-Plane is connected.");
         ImGui::PopFont();
@@ -170,7 +170,7 @@ void DrawPanel(const PanelState& s, const PanelFonts& f, const PanelActions& act
     ImGui::EndChild();
 
     // --- Footer ---
-    ImGui::PushFont(f.small);
+    ImGui::PushFont(f.note);
     if (ImGui::Button("Open the CLIKSTP page") && actions.openPage) actions.openPage();
     if (s.reachable && s.simConnected && !s.aircraft.empty()) {
         std::string name = s.aircraft;

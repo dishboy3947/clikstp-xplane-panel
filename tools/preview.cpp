@@ -116,9 +116,9 @@ int main(int argc, char** argv) {
     std::string fonts = std::string(CLIKSTP_FONT_DIR) + "/";
     PanelFonts f;
     f.ui = io.Fonts->AddFontFromFileTTF((fonts + "Roboto-Medium.ttf").c_str(), 17);
-    f.small = io.Fonts->AddFontFromFileTTF((fonts + "Roboto-Medium.ttf").c_str(), 14);
+    f.note = io.Fonts->AddFontFromFileTTF((fonts + "Roboto-Medium.ttf").c_str(), 14);
     f.screen = io.Fonts->AddFontFromFileTTF((fonts + "Cousine-Regular.ttf").c_str(), 20);
-    if (!f.ui || !f.small || !f.screen) { std::fprintf(stderr, "fonts not found in %s\n", fonts.c_str()); return 1; }
+    if (!f.ui || !f.note || !f.screen) { std::fprintf(stderr, "fonts not found in %s\n", fonts.c_str()); return 1; }
     unsigned char* tex; int tw, th;
     io.Fonts->GetTexDataAsRGBA32(&tex, &tw, &th);
     ApplyPanelStyle();
